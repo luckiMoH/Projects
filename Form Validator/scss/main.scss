@@ -44,22 +44,22 @@ form {
       border: 1px solid rgb(197,197,197);
       border-radius: 5px;
     }
+  }
 
-    .error input {
-      border: 1px solid rgb(0,137,250);
-      background-color: rgba(0,137,250,0.1);
-    }
+  .error input {
+    border: 1px solid rgb(0,137,250);
+    background-color: rgba(0,137,250,0.1);
+  }
 
-    .error-text {
-      margin: 5px 0 0 10px;
-      font-size: 14px;
-      color: rgb(0,137,250);
-      visibility: hidden;
-    }
+  .error-text {
+    margin: 5px 0 0 10px;
+    font-size: 14px;
+    color: rgb(0,137,250);
+    visibility: hidden;
+  }
 
-    .error .error-text {
-      visibility: visible;
-    }
+  .error .error-text {
+    visibility: visible;
   }
 
   .control-buttons {

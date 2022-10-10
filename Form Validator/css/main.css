@@ -41,17 +41,17 @@ form .form-box input {
   border: 1px solid rgb(197, 197, 197);
   border-radius: 5px;
 }
-form .form-box .error input {
+form .error input {
   border: 1px solid rgb(0, 137, 250);
   background-color: rgba(0, 137, 250, 0.1);
 }
-form .form-box .error-text {
+form .error-text {
   margin: 5px 0 0 10px;
   font-size: 14px;
   color: rgb(0, 137, 250);
   visibility: hidden;
 }
-form .form-box .error .error-text {
+form .error .error-text {
   visibility: visible;
 }
 form .control-buttons {
