@@ -15,6 +15,8 @@ let minutes = 0;
 let seconds = 0;
 
 const handleStart = () => {
+    clearInterval(countTime);
+
     countTime = setInterval(() => {
 
         if (seconds < 9) {
@@ -28,7 +30,14 @@ const handleStart = () => {
             seconds = 0;
             stopwatch.textContent = `${minutes}:00`;
         }
-    }, 100)
+    }, 1000)
 }
 
+const handlePause = () => {
+    clearInterval(countTime);
+}
+
+
+
 startBtn.addEventListener('click', handleStart)
+pauseBtn.addEventListener('click', handlePause)
