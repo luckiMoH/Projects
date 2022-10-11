@@ -2,7 +2,7 @@ const startBtn = document.querySelector('.start');
 const pauseBtn = document.querySelector('.pause');
 const stopBtn = document.querySelector('.stop');
 const resetBtn = document.querySelector('.reset');
-const historyBtn = document.querySelector('start');
+const historyBtn = document.querySelector('.history');
 const stopwatch = document.querySelector('.stopwatch');
 const time = document.querySelector('.time');
 const timeList = document.querySelector('.time-list');
@@ -47,6 +47,8 @@ const handleStop = () => {
         time.style.visibility = 'visible';
         timesArr.push(stopwatch.textContent);
         console.log(timesArr);
+    } else if (timesArr.length > 0 && stopwatch.textContent === '0:00') {
+        time.style.visibility = 'hidden';
     }
     clearStuff();
 }
@@ -65,9 +67,21 @@ const clearStuff = () => {
     minutes = 0;
 }
 
+const showHistory = () => {
 
+    timeList.textContent = "";
+    let num = 1;
+
+    timesArr.forEach(time => {
+        const newTime = document.createElement('li');
+        newTime.innerHTML = `Pomiar nr ${num}: <span>${time}</span>`;
+        timeList.append(newTime);
+        num++;
+    })
+}
 
 startBtn.addEventListener('click', handleStart);
 pauseBtn.addEventListener('click', handlePause);
 stopBtn.addEventListener('click', handleStop);
 resetBtn.addEventListener('click', handleReset);
+historyBtn.addEventListener('click', showHistory)
