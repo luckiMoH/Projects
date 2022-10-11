@@ -5,7 +5,7 @@ const resetBtn = document.querySelector('.reset');
 const historyBtn = document.querySelector('start');
 const stopwatch = document.querySelector('.stopwatch');
 const time = document.querySelector('.time');
-const timelist = document.querySelector('.time-list');
+const timeList = document.querySelector('.time-list');
 const infoBtn = document.querySelector('.info')
 const modalShadow = document.querySelector('.modal-shadow');
 const closeModalBtn = document.querySelector('.close');
@@ -13,6 +13,8 @@ const closeModalBtn = document.querySelector('.close');
 let countTime;
 let minutes = 0;
 let seconds = 0;
+
+let timesArr = [];
 
 const handleStart = () => {
     clearInterval(countTime);
@@ -30,14 +32,30 @@ const handleStart = () => {
             seconds = 0;
             stopwatch.textContent = `${minutes}:00`;
         }
-    }, 1000)
+    }, 100)
 }
 
 const handlePause = () => {
     clearInterval(countTime);
 }
 
+const handleStop = () => {
 
+    time.innerHTML = `Ostatni czas: ${stopwatch.textContent}`
+
+    if(stopwatch.textContent !== '0:00') {
+        time.style.visibility = 'visible';
+        timesArr.push(stopwatch.textContent);
+        console.log(timesArr);
+    }
+
+    clearInterval(countTime);
+    stopwatch.textContent = "0:00";
+    timeList.textContent = "";
+    seconds = 0;
+    minutes = 0;
+}
 
 startBtn.addEventListener('click', handleStart)
 pauseBtn.addEventListener('click', handlePause)
+stopBtn.addEventListener('click', handleStop)
